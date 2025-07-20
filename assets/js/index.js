@@ -14,6 +14,9 @@ class Post {
     if (typeof value !== 'number') {
       throw new TypeError('Likes must be a number value');
     }
+    if (likes < 0) {
+        throw new RangeError ("Likes can't be a negative number");
+    }
     this._likes = value;
   }
 
