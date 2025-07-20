@@ -5,9 +5,20 @@ class Post {
     this._author = author;
     this._text = text;
     this._addData = addData;
-    this._likes = likes;
+    this.likes = likes;
     this._img = img;
     this._hashtagList = hashtagList;
+  }
+
+  set likes(value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('Likes must be a number value');
+    }
+    this._likes = value;
+  }
+
+  get likes() {
+    return this._likes;
   }
 
   changeText(newText) {
@@ -59,7 +70,8 @@ class Post {
   }
 }
 
-const post1 = new Post(
+try {
+   const post1 = new Post(
   1,
   'Test Post Title',
   'John Doe',
@@ -75,10 +87,15 @@ const post1 = new Post(
   23,
   'https://images.unsplash.com/photo-1752350434950-50e8df9c268e?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   ['one', 'two', 'three', 'four', 'five', 'six']
-);
-
+); 
 //post1.changeText('New text lorem bla bla bla');
 //post1.likesIncrease();
 // post1.likesDecrease();
 post1.render();
 console.log(post1);
+} catch (error) {
+    console.error(error);
+}
+
+
+
