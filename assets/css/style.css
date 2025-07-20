@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --main-font: 'Cousine', monospace;
+  --title-font: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--main-font);
+  max-width: 700px;
+  width: 100%;
+  margin: 50px auto;
+  font-size: 16px;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 15px black;
+  justify-content: center;
+  align-content: center;
+}
+
+.userPost {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+  align-items: center;
+}
+
+.imgWrapper {
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.postName {
+  font-family: var(--title-font);
+  font-size: 1.5rem;
+  margin: 1.25rem 0 0.625rem 0;
+  font-weight: 600;
+}
+
+.postDetais {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+  padding: 0 20px;
+}
+
+.postAuthor {
+  font-weight: bold;
+}
+
+.posdDate {
+  color: #666;
+  font-style: italic;
+}
+
+.text {
+  margin: 20px 0;
+  text-align: left;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+.hashTags {
+  color: #0066cc;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.likes i {
+  font-size: 1.25rem;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.likes:hover i {
+  color: #0066cc;
+}
