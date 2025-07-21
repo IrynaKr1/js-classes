@@ -14,14 +14,14 @@ class Post {
     if (typeof value !== 'number') {
       throw new TypeError('Likes must be a number value');
     }
-    if (likes < 0) {
-        throw new RangeError ("Likes can't be a negative number");
+    if (value < 0) {
+      throw new RangeError("Likes can't be a negative number");
     }
     this._likes = value;
   }
 
   get likes() {
-    return this._likes;
+    return this.likes;
   }
 
   changeText(newText) {
@@ -29,11 +29,17 @@ class Post {
   }
 
   likesIncrease() {
-    return this._likes++;
+    this.likes = this._likes + 1;
+    return this._likes;
   }
 
   likesDecrease() {
-    return this._likes--;
+    if (this._likes <= 0) {
+      console.warn('Cannot decrease likes below 0');
+      return this._likes;
+    }
+    this.likes = this._likes - 1;
+    return this._likes;
   }
 
   render() {
@@ -74,11 +80,11 @@ class Post {
 }
 
 try {
-   const post1 = new Post(
-  1,
-  'Test Post Title',
-  'John Doe',
-  `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit itaque
+  const post1 = new Post(
+    1,
+    'Test Post Title',
+    'John Doe',
+    `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit itaque
         non perferendis et, similique odio provident quasi corporis est
         temporibus! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
         Consequuntur architecto, repellat et ut minima nemo molestias nihil
@@ -86,19 +92,16 @@ try {
         sit soluta temporibus aliquid necessitatibus? Totam obcaecati culpa
         soluta accusantium ipsam distinctio sequi. Sed consequatur maiores illo
         neque similique cupiditate culpa a id nulla?`,
-  2024,
-  23,
-  'https://images.unsplash.com/photo-1752350434950-50e8df9c268e?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  ['one', 'two', 'three', 'four', 'five', 'six']
-); 
-//post1.changeText('New text lorem bla bla bla');
-//post1.likesIncrease();
-// post1.likesDecrease();
-post1.render();
-console.log(post1);
+    2024,
+    23,
+    'https://images.unsplash.com/photo-1752350434950-50e8df9c268e?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ['one', 'two', 'three', 'four', 'five', 'six']
+  );
+  //post1.changeText('New text lorem bla bla bla');
+  //post1.likesIncrease();
+  // post1.likesDecrease();
+  post1.render();
+  console.log(post1);
 } catch (error) {
-    console.error(error);
+  console.error(error);
 }
-
-
-
