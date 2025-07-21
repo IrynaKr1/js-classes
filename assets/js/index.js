@@ -93,13 +93,13 @@ try {
         soluta accusantium ipsam distinctio sequi. Sed consequatur maiores illo
         neque similique cupiditate culpa a id nulla?`,
     2024,
-    23,
+    2,
     'https://images.unsplash.com/photo-1752350434950-50e8df9c268e?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ['one', 'two', 'three', 'four', 'five', 'six']
   );
   //post1.changeText('New text lorem bla bla bla');
   //post1.likesIncrease();
-  // post1.likesDecrease();
+  post1.likesDecrease();
   post1.render();
   console.log(post1);
 } catch (error) {
